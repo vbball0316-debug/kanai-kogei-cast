@@ -191,57 +191,49 @@ export default function Home() {
         </div>
       </section>
 
-         {/* History */}
-<section id="history">
-  <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-    <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-      <div>
-        <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-          HISTORY
-        </p>
+           {/* History */}
+      <section id="history">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
+                HISTORY
+              </p>
 
-        <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-          沿革
-        </h2>
-      </div>
+              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+                沿革
+              </h2>
+            </div>
 
-      <div className="border-t border-[#292722]/20">
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-7">
-                <p className="text-sm tracking-[0.1em] text-[#8c8273]">
-                  1942
-                </p>
-                <p className="text-sm leading-7 text-[#292722]">
+            <div className="border-t border-[#292722]/20">
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">1942</span>
+                <span className="text-sm leading-7">
                   京都市下京区中堂寺庄ノ内町1にて開業
-                </p>
+                </span>
               </div>
 
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-7">
-                <p className="text-sm tracking-[0.1em] text-[#8c8273]">
-                  1964
-                </p>
-                <p className="text-sm leading-7 text-[#292722]">
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">1964</span>
+                <span className="text-sm leading-7">
                   京都府城陽市寺田樋尻12番地の9へ移転
-                </p>
+                </span>
               </div>
 
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-7">
-                <p className="text-sm tracking-[0.1em] text-[#8c8273]">
-                  1968
-                </p>
-                <p className="text-sm leading-7 text-[#292722]">
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">1968</span>
+                <span className="text-sm leading-7">
                   法人設立
-                </p>
+                </span>
               </div>
 
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-7">
-                <p className="text-sm tracking-[0.1em] text-[#8c8273]">
-                  2001
-                </p>
-                <p className="text-sm leading-7 text-[#292722]">
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">2001</span>
+                <span className="text-sm leading-7">
                   三代目社長就任
                   <br />
                   現在に至る
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -251,41 +243,45 @@ export default function Home() {
       {/* Company */}
       <section id="company">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-            COMPANY
-          </p>
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
+                COMPANY
+              </p>
 
-          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-            会社概要
-          </h2>
-
-          <div className="mt-12 max-w-3xl border-t border-[#292722]/20">
-            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
-              <span className="text-sm text-[#766f63]">会社名</span>
-              <span className="col-span-2 text-sm">
-                株式会社 金井工芸鋳造所
-              </span>
+              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+                会社概要
+              </h2>
             </div>
 
-            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
-              <span className="text-sm text-[#766f63]">事業内容</span>
-              <span className="col-span-2 text-sm">
-                仏具・建築関連の鋳物などの鋳造・製造
-              </span>
-            </div>
+            <div className="border-t border-[#292722]/20">
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">会社名</span>
+                <span className="text-sm leading-7">
+                  株式会社 金井工芸鋳造所
+                </span>
+              </div>
 
-            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
-              <span className="text-sm text-[#766f63]">所在地</span>
-              <span className="col-span-2 text-sm">
-                〒610-0121 京都府城陽市寺田宮ノ谷
-              </span>
-            </div>
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">事業内容</span>
+                <span className="text-sm leading-7">
+                  仏具・建築関連の鋳物などの鋳造・製造
+                </span>
+              </div>
 
-            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
-              <span className="text-sm text-[#766f63]">代表者</span>
-              <span className="col-span-2 text-sm">
-                金井　勝
-              </span>
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">所在地</span>
+                <span className="text-sm leading-7">
+                  〒610-0121 京都府城陽市寺田宮ノ谷
+                </span>
+              </div>
+
+              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
+                <span className="text-sm text-[#766f63]">代表者</span>
+                <span className="text-sm leading-7">
+                  金井　勝
+                </span>
+              </div>
             </div>
           </div>
         </div>
