@@ -2,68 +2,275 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="min-h-screen bg-[#f5f2eb] text-[#292722]">
+      {/* Header */}
+      <header className="border-b border-[#292722]/10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          <a href="#" className="text-lg font-medium tracking-[0.18em]">
+            株式会社金井工芸鋳造所
+          </a>
+
+          <nav className="hidden gap-8 text-sm tracking-wider md:flex">
+            <a href="#about" className="hover:opacity-60">
+              私たちについて
+            </a>
+            <a href="#business" className="hover:opacity-60">
+              事業内容
+            </a>
+            <a href="#process" className="hover:opacity-60">
+              鋳造について
+            </a>
+            <a href="#company" className="hover:opacity-60">
+              会社概要
+            </a>
+          </nav>
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
+            className="border border-[#292722] px-4 py-2 text-xs tracking-wider hover:bg-[#292722] hover:text-white"
           >
+            お問い合わせ
+          </a>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section>
+        <div className="mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-10">
+          <div>
+            <p className="mb-8 text-sm tracking-[0.3em] text-[#766f63]">
+              KANAI KOGEI CHUZOSHO
+            </p>
+
+            <h1 className="text-4xl font-light leading-[1.4] tracking-[0.12em] sm:text-5xl lg:text-6xl">
+              受け継いだ技術を、
+              <br />
+              未来へ。
+            </h1>
+
+            <div className="mt-10 h-px w-16 bg-[#8b7c62]" />
+
+            <p className="mt-8 max-w-xl text-base leading-8 tracking-wider text-[#625e56]">
+              金井工芸鋳造所は、鋳造の技術を活かし
+              <br />
+              仏具をはじめ、装飾品や建築関連の鋳物などの、
+              <br />
+              様々な物を鋳造、補修、管理しています。
+              <br />
+            </p>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/hero.jpg"
+              alt="金井工芸鋳造所"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="bg-[#292722] text-[#f5f2eb]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <div>
+              <p className="text-xs tracking-[0.3em] text-[#b5aa98]">
+                ABOUT US
+              </p>
+
+              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+                私たちについて
+              </h2>
+
+              <p className="mt-10 text-xl font-light leading-9 tracking-wider">
+                鋳造という技術を通して、
+                <br />
+                様々な想いが込められたものを
+                <br />
+                かたちにしています。
+              </p>
+
+              <p className="mt-8 leading-8 tracking-wider text-[#c7c0b4]">
+                仏具は、長く使われ、受け継がれていくものです。
+                だからこそ、素材と向き合い、一つひとつの工程を丁寧に。
+                金井工芸鋳造所は、これまで培ってきた鋳造の技術を大切にしながら、
+                これからも確かなものづくりを続けていきます。
+              </p>
+            </div>
+
+            {/* Craft Image */}
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/craft.jpg"
+                alt="金井工芸鋳造所のものづくり"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business */}
+      <section id="business">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
+            BUSINESS
+          </p>
+
+          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+            事業内容
+          </h2>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            <div className="border border-[#292722]/15 p-8">
+              <p className="text-sm text-[#8b7c62]">01</p>
+              <h3 className="mt-6 text-xl tracking-wider">仏具の鋳造</h3>
+              <p className="mt-6 text-sm leading-7 text-[#625e56]">
+                仏具を中心とした鋳造品の製造を行っています。
+                長く使われ、受け継がれていくものだからこそ、
+                一つひとつ丁寧に仕上げています。
+              </p>
+            </div>
+
+            <div className="border border-[#292722]/15 p-8">
+              <p className="text-sm text-[#8b7c62]">02</p>
+              <h3 className="mt-6 text-xl tracking-wider">美術工芸品の鋳造</h3>
+              <p className="mt-6 text-sm leading-7 text-[#625e56]">
+                鋳造の技術を活かしたものづくりを行っています。
+              </p>
+            </div>
+
+            <div className="border border-[#292722]/15 p-8">
+              <p className="text-sm text-[#8b7c62]">03</p>
+              <h3 className="mt-6 text-xl tracking-wider">特注・ご相談</h3>
+              <p className="mt-6 text-sm leading-7 text-[#625e56]">
+                これまで培ってきた鋳造技術を活かし、
+                用途や形状に応じたさまざまな鋳造品に対応しています。
+                また、鋳造に関する修理、補修のご相談もお気軽にお問い合わせください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section id="process" className="bg-[#e7e1d6]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
+            PROCESS
+          </p>
+
+          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+            鋳造について
+          </h2>
+
+          <div className="mt-16 grid md:grid-cols-5">
+            {[
+              ["01", "原型"],
+              ["02", "鋳型"],
+              ["03", "溶解"],
+              ["04", "鋳込み"],
+              ["05", "仕上げ"],
+            ].map(([number, title]) => (
+              <div
+                key={number}
+                className="border-t border-[#292722]/20 p-6 md:border-l md:border-t-0"
+              >
+                <p className="text-xs text-[#8b7c62]">{number}</p>
+                <h3 className="mt-5 text-lg tracking-wider">{title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company */}
+      <section id="company">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
+            COMPANY
+          </p>
+
+          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
+            会社概要
+          </h2>
+
+          <div className="mt-12 max-w-3xl border-t border-[#292722]/20">
+            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
+              <span className="text-sm text-[#766f63]">会社名</span>
+              <span className="col-span-2 text-sm">
+                株式会社 金井工芸鋳造所
+              </span>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
+              <span className="text-sm text-[#766f63]">事業内容</span>
+              <span className="col-span-2 text-sm">
+                仏具などの鋳造・製造
+              </span>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
+              <span className="text-sm text-[#766f63]">所在地</span>
+              <span className="col-span-2 text-sm">
+                〒610-0121 京都府城陽市寺田宮ノ谷
+              </span>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-[#292722]/15 py-6">
+              <span className="text-sm text-[#766f63]">代表者</span>
+              <span className="col-span-2 text-sm">
+                金井　勝
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     {/* Contact */}
+<section id="contact" className="bg-[#292722] text-[#f5f2eb]">
+  <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
+    <p className="text-xs tracking-[0.3em] text-[#b5aa98]">
+      CONTACT
+    </p>
+
+    <h2 className="mt-6 text-3xl font-light tracking-[0.12em]">
+      お問い合わせ
+    </h2>
+
+    <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-[#c7c0b4]">
+      製品に関するお問い合わせや、
+      <br />
+      鋳造についてのご相談など、お気軽にお問い合わせください。
+    </p>
+
+    <a
+      href="mailto:kanaikogei@gmail.com"
+      className="mt-10 inline-flex border border-[#f5f2eb]/50 px-10 py-4 text-sm tracking-[0.15em] hover:bg-[#f5f2eb] hover:text-[#292722]"
+    >
+      メールでお問い合わせ
+    </a>
+
+    <p className="mt-5 text-xs text-[#aaa398]">
+      kanaikogei@gmail.com
+    </p>
+  </div>
+</section>
+
+      {/* Footer */}
+      <footer className="bg-[#1f1e1b] px-6 py-8 text-[#aaa398]">
+        <div className="mx-auto flex max-w-7xl justify-between text-xs tracking-wider">
+          <p>© 株式会社 金井工芸鋳造所</p>
+          <p>All Rights Reserved.</p>
+        </div>
+      </footer>
+    </main>
   );
 }
