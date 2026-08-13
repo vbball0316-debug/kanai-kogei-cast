@@ -43,7 +43,7 @@ export default function Home() {
             </p>
 
             <h1 className="text-4xl font-light leading-[1.4] tracking-[0.12em] sm:text-5xl lg:text-6xl">
-              受け継いだ技術を、
+              継承した技術を、
               <br />
               未来へ。
             </h1>
