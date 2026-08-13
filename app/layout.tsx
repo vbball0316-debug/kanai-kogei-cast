@@ -12,10 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "株式会社 金井工芸鋳造所｜仏具・建築関連の鋳物・鋳造",
   description:
     "株式会社金井工芸鋳造所は、仏具をはじめ、建築関連の鋳物など、さまざまな鋳造品を製造しています。培ってきた鋳造技術と経験を活かし、確かなものづくりを続けています。",
+  applicationName: "株式会社 金井工芸鋳造所",
   verification: {
     google: "aKbTLrGwRuohca_OYTDeF2s7er0F-IC-txjHMLnGliI",
   },
@@ -42,7 +43,7 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="ja"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
