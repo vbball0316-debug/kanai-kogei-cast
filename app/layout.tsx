@@ -18,6 +18,7 @@ export const metadata = {
     "株式会社金井工芸鋳造所は、仏具をはじめ、美術工芸品の鋳物など、さまざまな鋳造品を製造しています。培ってきた鋳造技術と経験を活かし、確かなものづくりを続けています。",
   verification: {
     google: "aKbTLrGwRuohca_OYTDeF2s7er0F-IC-txjHMLnGliI",
+  },
 };
 
 
