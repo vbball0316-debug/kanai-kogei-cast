@@ -13,11 +13,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "株式会社 金井工芸鋳造所｜仏具・美術工芸品の鋳造",
+  title: "株式会社 金井工芸鋳造所｜仏具・建築関連の鋳物・鋳造",
   description:
-    "株式会社金井工芸鋳造所は、仏具をはじめ、美術工芸品の鋳物など、さまざまな鋳造品を製造しています。培ってきた鋳造技術と経験を活かし、確かなものづくりを続けています。",
+    "株式会社金井工芸鋳造所は、仏具をはじめ、建築関連の鋳物など、さまざまな鋳造品を製造しています。培ってきた鋳造技術と経験を活かし、確かなものづくりを続けています。",
   verification: {
     google: "aKbTLrGwRuohca_OYTDeF2s7er0F-IC-txjHMLnGliI",
+  },
+  openGraph: {
+    title: "株式会社 金井工芸鋳造所｜仏具・建築関連の鋳物・鋳造",
+    description:
+      "仏具をはじめ、建築関連の鋳物など、さまざまな鋳造品を製造しています。",
+    url: "https://kanai-kogei-cast.vercel.app",
+    siteName: "株式会社 金井工芸鋳造所",
+    images: [
+      {
+        url: "https://kanai-kogei-cast.vercel.app/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "株式会社 金井工芸鋳造所",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
   },
 };
 
