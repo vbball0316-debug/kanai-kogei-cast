@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://あなたの公開URL",
+      url: "https://kanai-kogei-cast.vercel.app",
       lastModified: new Date(),
     },
   ];
