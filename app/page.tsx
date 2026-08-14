@@ -8,7 +8,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
           <a
            href="#"
-           className="text-xl font-serif font-medium tracking-[0.12em]"
+           className="text-2xl font-serif font-semibold tracking-[0.06em] sm:text-3xl"
           >
            株式会社金井工芸鋳造所
           </a>
