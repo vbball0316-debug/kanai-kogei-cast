@@ -6,8 +6,11 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-[#292722]/10">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-          <a href="#" className="text-lg font-medium tracking-[0.18em]">
-            株式会社金井工芸鋳造所
+          <a
+           href="#"
+           className="text-xl font-serif font-medium tracking-[0.12em]"
+          >
+           株式会社金井工芸鋳造所
           </a>
 
           <nav className="hidden gap-8 text-sm tracking-wider md:flex">
