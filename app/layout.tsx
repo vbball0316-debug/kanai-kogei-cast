@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "株式会社 金井工芸鋳造所｜仏具・建築関連の鋳物・鋳造",
+  title: "株式会社 金井工芸鋳造所｜京都府で仏具・建築関連の鋳物・鋳造",
   description:
     "株式会社金井工芸鋳造所は、仏具をはじめ、建築関連の鋳物など、さまざまな鋳造品を製造しています。培ってきた鋳造技術と経験を活かし、確かなものづくりを続けています。",
   applicationName: "株式会社 金井工芸鋳造所",
