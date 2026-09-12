@@ -54,7 +54,7 @@ export default function Home() {
             <div className="mt-10 h-px w-16 bg-[#8b7c62]" />
 
             <p className="mt-8 max-w-xl text-base leading-8 tracking-wider text-[#625e56]">
-              金井工芸鋳造所は、鋳造の技術を活かし
+              京都府城陽市で鋳造を続ける金井工芸鋳造所、造の技術を活かし
               <br />
               仏具をはじめ、装飾品や建築関連の鋳物などの、
               <br />
@@ -96,6 +96,10 @@ export default function Home() {
                 様々な想いが込められたものを
                 <br />
                 かたちにしています。
+
+                金井工芸鋳造所は、京都府を拠点に、鋳造の技術を磨いてきました。
+                1942年の創業以来、仏具をはじめ、建築関連の鋳物や美術工芸品など、さまざまな鋳造品を形にしてきました。
+                城陽市をはじめ、宇治市など近隣の地域から北海道、沖縄まで全国津々浦々、鋳造に関するご相談にも対応しております。
               </p>
 
               <p className="mt-8 leading-8 tracking-wider text-[#c7c0b4]">
