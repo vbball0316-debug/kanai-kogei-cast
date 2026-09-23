@@ -23,6 +23,9 @@ export default function Home() {
             <a href="#process" className="hover:opacity-60">
               鋳造について
             </a>
+            <a href="/works" className="hover:opacity-60">
+              施工事例
+            </a>
             <a href="#company" className="hover:opacity-60">
               会社概要
             </a>
