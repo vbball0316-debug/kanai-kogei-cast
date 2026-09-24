@@ -1,339 +1,483 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
+
+const processSteps = [
+  {
+    number: "01",
+    title: "原型",
+    text: "完成形をもとに、鋳造のための原型をつくります。",
+  },
+  {
+    number: "02",
+    title: "鋳型",
+    text: "原型から鋳型をつくり、金属を流し込むための空間を整えます。",
+  },
+  {
+    number: "03",
+    title: "溶解",
+    text: "素材を適切な温度まで溶かし、鋳込みに備えます。",
+  },
+  {
+    number: "04",
+    title: "鋳込み",
+    text: "溶かした金属を鋳型へ流し込み、形をつくります。",
+  },
+  {
+    number: "05",
+    title: "仕上げ",
+    text: "鋳肌を整え、細部まで丁寧に仕上げて完成させます。",
+  },
+];
+
+const businessItems = [
+  {
+    number: "01",
+    title: "仏具の鋳造",
+    text: "長く受け継がれてきた仏具を、確かな鋳造技術で一つひとつ形にします。",
+  },
+  {
+    number: "02",
+    title: "美術工芸品の鋳造",
+    text: "素材の表情や造形の美しさを大切にし、美術工芸品の鋳造に対応します。",
+  },
+  {
+    number: "03",
+    title: "特注・ご相談",
+    text: "建築関連の鋳物など、用途や形状に合わせた特注品についてもご相談ください。",
+  },
+];
+
+const historyItems = [
+  {
+    year: "1942",
+    text: "京都市下京区中堂寺庄ノ内町1にて開業",
+  },
+  {
+    year: "1964",
+    text: "京都府城陽市寺田樋尻12番地の9へ移転",
+  },
+  {
+    year: "1968",
+    text: "法人設立",
+  },
+  {
+    year: "2001",
+    text: "三代目社長就任 / 現在に至る",
+  },
+];
 
 export default function Home() {
+
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    const hero = document.querySelector<HTMLElement>("[data-hero]");
+    const heroImage = document.querySelector<HTMLElement>("[data-hero-image]");
+    const heroContent = document.querySelector<HTMLElement>(".hero-content");
+    const aboutImage = document.querySelector<HTMLElement>(".about-image");
+
+
+  
+
+    let ticking = false;
+
+    const updateParallax = () => {
+      // Hero
+      if (hero && heroImage && heroContent) {
+        const rect = hero.getBoundingClientRect();
+
+        const progress = Math.min(
+          Math.max(-rect.top / window.innerHeight, 0),
+          1,
+        );
+
+         heroImage.style.setProperty(
+           "--hero-shift",
+           `${progress * 7}%`,
+        );
+
+         heroContent.style.setProperty(
+           "--hero-content-shift",
+          `${progress * -35}px`,
+        );
+   }
+
+   // About image
+   if (aboutImage) {
+     const rect = aboutImage.getBoundingClientRect();
+     const viewportCenter = window.innerHeight / 2;
+     const distance =
+       rect.top + rect.height / 2 - viewportCenter;
+
+     const shift = Math.max(
+       -18,
+       Math.min(18, distance * -0.04),
+     );
+
+     aboutImage.style.setProperty(
+       "--about-image-shift",
+       `${shift}px`,
+     );
+   }
+
+
+  ticking = false;
+};
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    updateParallax();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <main className="min-h-screen bg-[#f5f2eb] text-[#292722]">
+    <main className="site-shell">
       {/* Header */}
-      <header className="border-b border-[#292722]/10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-          <a
-           href="#"
-           className="text-2xl font-serif font-semibold tracking-[0.06em] sm:text-3xl"
-          >
-           株式会社金井工芸鋳造所
+      <header className="site-header">
+        <div className="header-inner">
+          <a href="#" className="site-logo">
+            <span className="site-logo-jp">株式会社 金井工芸鋳造所</span>
+            <span className="site-logo-en">KANAI KOGEI CHUZOSHO</span>
           </a>
 
-          <nav className="hidden gap-8 text-sm tracking-wider md:flex">
-            <a href="#about" className="hover:opacity-60">
-              私たちについて
-            </a>
-            <a href="#business" className="hover:opacity-60">
-              事業内容
-            </a>
-            <a href="#process" className="hover:opacity-60">
-              鋳造について
-            </a>
-            <a href="/works" className="hover:opacity-60">
-              施工事例
-            </a>
-            <a href="#company" className="hover:opacity-60">
-              会社概要
-            </a>
+          <nav className="desktop-nav" aria-label="メインナビゲーション">
+            <a href="#about">私たちについて</a>
+            <a href="#business">事業内容</a>
+            <a href="#process">鋳造について</a>
+            <a href="/works">施工事例</a>
+            <a href="#company">会社概要</a>
           </nav>
 
-          <a
-            href="#contact"
-            className="border border-[#292722] px-4 py-2 text-xs tracking-wider hover:bg-[#292722] hover:text-white"
-          >
-            お問い合わせ
+          <a href="#contact" className="header-contact">
+            <span>お問い合わせ</span>
+            <span className="header-contact-arrow">↗</span>
           </a>
+
+          <button className="mobile-menu-button" type="button" aria-label="メニュー">
+            <span />
+            <span />
+          </button>
         </div>
       </header>
 
       {/* Hero */}
-      <section>
-        <div className="mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-10">
-          <div>
-            <p className="mb-8 text-sm tracking-[0.3em] text-[#766f63]">
-              KANAI KOGEI CHUZOSHO
-            </p>
-
-            <h1 className="text-4xl font-light leading-[1.4] tracking-[0.12em] sm:text-5xl lg:text-6xl">
-              継承した技術を、
-              <br />
-              未来へ。
-            </h1>
-
-            <div className="mt-10 h-px w-16 bg-[#8b7c62]" />
-
-            <p className="mt-8 max-w-xl text-base leading-8 tracking-wider text-[#625e56]">
-              京都府城陽市で鋳造を続ける金井工芸鋳造所、造の技術を活かし
-              <br />
-              仏具をはじめ、装飾品や建築関連の鋳物などの、
-              <br />
-              様々な物を鋳造、補修、管理しています。
-              <br />
-            </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="relative aspect-[4/5] overflow-hidden">
+      <section className="hero" data-hero>
+        <div className="hero-image-wrap">
+          <div className="hero-image" data-hero-image>
             <Image
               src="/hero.jpg"
-              alt="金井工芸鋳造所"
+              alt="金井工芸鋳造所の鋳造風景"
               fill
               priority
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="100vw"
+              className="hero-image-element"
             />
           </div>
+          <div className="hero-overlay" />
+        </div>
+
+        <div className="hero-content">
+          <p className="eyebrow hero-eyebrow" data-reveal>
+            KANAI KOGEI CHUZOSHO
+          </p>
+
+          <h1 data-reveal>
+            継承した技術を、
+            <br />
+            未来へ。
+          </h1>
+
+          <p className="hero-description" data-reveal>
+            京都府城陽市で鋳造を続ける
+            <br className="desktop-only" />
+            金井工芸鋳造所。
+            <br />
+            仏具、装飾品、建築関連の鋳物など、
+            <br className="desktop-only" />
+            受け継いだ技術をかたちにします。
+          </p>
+        </div>
+
+        <div className="hero-scroll">
+          <span>SCROLL</span>
+          <span className="hero-scroll-line" />
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="bg-[#292722] text-[#f5f2eb]">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div>
-              <p className="text-xs tracking-[0.3em] text-[#b5aa98]">
-                ABOUT US
-              </p>
+      <section id="about" className="about-section section-dark">
+        <div className="about-grid">
+          <div className="about-copy">
+            <p className="eyebrow light" data-reveal>
+              ABOUT US
+            </p>
 
-              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-                私たちについて
-              </h2>
+            <h2 data-reveal>
+              私たちについて
+            </h2>
 
-              <p className="mt-10 text-xl font-light leading-9 tracking-wider">
+            <div className="about-text">
+              <p data-reveal>
                 鋳造という技術を通して、
                 <br />
-                様々な想いが込められたものを
+                ものづくりの歴史と文化を
                 <br />
-                かたちにしています。
-
-                金井工芸鋳造所は、京都府を拠点に、鋳造の技術を磨いてきました。
-                1942年の創業以来、仏具をはじめ、建築関連の鋳物や美術工芸品など、さまざまな鋳造品を形にしてきました。
-                城陽市をはじめ、宇治市など近隣の地域から北海道、沖縄まで全国津々浦々、鋳造に関するご相談にも対応しております。
+                次の世代へつないでいく。
               </p>
 
-              <p className="mt-8 leading-8 tracking-wider text-[#c7c0b4]">
-                仏具は、長く使われ、受け継がれていくものです。
-                だからこそ、素材と向き合い、一つひとつの工程を丁寧に。
-                金井工芸鋳造所は、これまで培ってきた鋳造の技術を大切にしながら、
-                これからも確かなものづくりを続けていきます。
+              <p data-reveal>
+                1942年創業。
+                <br />
+                仏具、建築関連鋳物、美術工芸品など、
+                <br />
+                一つひとつのご依頼と向き合いながら
+                <br />
+                技術を磨いてきました。
+              </p>
+
+              <p data-reveal>
+                京都・城陽、宇治を拠点に、
+                <br />
+                北海道から沖縄まで全国のご依頼に
+                <br />
+                対応しています。
               </p>
             </div>
+          </div>
 
-            {/* Craft Image */}
-            <div className="relative aspect-[4/3] overflow-hidden">
+          <div className="about-image-wrap" data-reveal>
+            <div className="about-image">
               <Image
                 src="/craft.jpg"
-                alt="金井工芸鋳造所のものづくり"
+                alt="鋳造職人の作業風景"
                 fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+            <p className="image-caption">CRAFTSMANSHIP / 01</p>
           </div>
         </div>
       </section>
 
       {/* Business */}
-      <section id="business">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-            BUSINESS
-          </p>
-
-          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-            事業内容
-          </h2>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            <div className="border border-[#292722]/15 p-8">
-              <p className="text-sm text-[#8b7c62]">01</p>
-              <h3 className="mt-6 text-xl tracking-wider">仏具の鋳造</h3>
-              <p className="mt-6 text-sm leading-7 text-[#625e56]">
-                仏具を中心とした鋳造品の製造を行っています。
-                長く使われ、受け継がれていくものだからこそ、
-                一つひとつ丁寧に仕上げています。
+      <section id="business" className="business-section section-light">
+        <div className="section-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow" data-reveal>
+                BUSINESS
               </p>
+              <h2 data-reveal>事業内容</h2>
             </div>
 
-            <div className="border border-[#292722]/15 p-8">
-              <p className="text-sm text-[#8b7c62]">02</p>
-              <h3 className="mt-6 text-xl tracking-wider">美術工芸品の鋳造</h3>
-              <p className="mt-6 text-sm leading-7 text-[#625e56]">
-                鋳造の技術を活かしたものづくりを行っています。
-              </p>
-            </div>
+            <p className="section-intro" data-reveal>
+              伝統的な鋳造技術を軸に、
+              <br />
+              さまざまなご依頼にお応えします。
+            </p>
+          </div>
 
-            <div className="border border-[#292722]/15 p-8">
-              <p className="text-sm text-[#8b7c62]">03</p>
-              <h3 className="mt-6 text-xl tracking-wider">特注・ご相談</h3>
-              <p className="mt-6 text-sm leading-7 text-[#625e56]">
-                これまで培ってきた鋳造技術を活かし、
-                用途や形状に応じたさまざまな鋳造品に対応しています。
-                また、鋳造に関する修理、補修のご相談もお気軽にお問い合わせください。
-              </p>
-            </div>
+          <div className="business-grid">
+            {businessItems.map((item, index) => (
+              <article
+                className="business-card"
+                data-reveal
+                style={{ transitionDelay: `${index * 100}ms` }}
+                key={item.number}
+              >
+                <span className="business-number">{item.number}</span>
+
+                <div className="business-card-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+
+                <span className="business-arrow">↗</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Process */}
-      <section id="process" className="bg-[#e7e1d6]">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-            PROCESS
-          </p>
+      <section id="process" className="process-section">
+        <div className="section-container">
+          <div className="process-heading">
+            <div>
+              <p className="eyebrow" data-reveal>
+                PROCESS
+              </p>
+              <h2 data-reveal>鋳造について</h2>
+            </div>
 
-          <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-            鋳造について
-          </h2>
+            <p className="section-intro" data-reveal>
+              形をつくるだけではない。
+              <br />
+              素材と向き合い、手をかけ、仕上げていく。
+            </p>
+          </div>
 
-          <div className="mt-16 grid md:grid-cols-5">
-            {[
-              ["01", "原型"],
-              ["02", "鋳型"],
-              ["03", "溶解"],
-              ["04", "鋳込み"],
-              ["05", "仕上げ"],
-            ].map(([number, title]) => (
+          <div className="process-list">
+            {processSteps.map((step, index) => (
+             <article
+               className="process-item"
+               data-reveal
+               style={{ transitionDelay: `${index * 80}ms` }}
+               key={step.number}
+             >
+                <div className="process-number">{step.number}</div>
+
+                <div className="process-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+
+                <div className="process-line" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* History */}
+      <section id="history" className="history-section section-dark">
+        <div className="section-container">
+          <div className="history-heading">
+            <p className="eyebrow light" data-reveal>
+              HISTORY
+            </p>
+            <h2 data-reveal>沿革</h2>
+          </div>
+
+          <div className="history-list">
+            {historyItems.map((item, index) => (
               <div
-                key={number}
-                className="border-t border-[#292722]/20 p-6 md:border-l md:border-t-0"
+                className="history-item"
+                data-reveal
+                style={{ transitionDelay: `${index * 100}ms` }}
+                key={item.year}
               >
-                <p className="text-xs text-[#8b7c62]">{number}</p>
-                <h3 className="mt-5 text-lg tracking-wider">{title}</h3>
+                <span className="history-year">{item.year}</span>
+                <span className="history-dot" />
+                <p>{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-           {/* History */}
-      <section id="history">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-                HISTORY
-              </p>
-
-              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-                沿革
-              </h2>
-            </div>
-
-            <div className="border-t border-[#292722]/20">
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">1942</span>
-                <span className="text-sm leading-7">
-                  京都市下京区中堂寺庄ノ内町1にて開業
-                </span>
-              </div>
-
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">1964</span>
-                <span className="text-sm leading-7">
-                  京都府城陽市寺田樋尻12番地の9へ移転
-                </span>
-              </div>
-
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">1968</span>
-                <span className="text-sm leading-7">
-                  法人設立
-                </span>
-              </div>
-
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">2001</span>
-                <span className="text-sm leading-7">
-                  三代目社長就任
-                  <br />
-                  現在に至る
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Company */}
-      <section id="company">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="text-xs tracking-[0.3em] text-[#8b7c62]">
-                COMPANY
-              </p>
+      <section id="company" className="company-section section-light">
+        <div className="section-container company-grid">
+          <div>
+            <p className="eyebrow" data-reveal>
+              COMPANY
+            </p>
 
-              <h2 className="mt-5 text-3xl font-light tracking-[0.12em]">
-                会社概要
-              </h2>
+            <h2 data-reveal>会社概要</h2>
+          </div>
+
+          <div className="company-table" data-reveal>
+            <div className="company-row">
+              <span>会社名</span>
+              <strong>株式会社 金井工芸鋳造所</strong>
             </div>
 
-            <div className="border-t border-[#292722]/20">
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">会社名</span>
-                <span className="text-sm leading-7">
-                  株式会社 金井工芸鋳造所
-                </span>
-              </div>
+            <div className="company-row">
+              <span>事業内容</span>
+              <strong>仏具・建築関連の鋳物などの鋳造・製造</strong>
+            </div>
 
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">事業内容</span>
-                <span className="text-sm leading-7">
-                  仏具・建築関連の鋳物などの鋳造・製造
-                </span>
-              </div>
+            <div className="company-row">
+              <span>所在地</span>
+              <strong>〒610-0121 京都府城陽市寺田宮ノ谷</strong>
+            </div>
 
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">所在地</span>
-                <span className="text-sm leading-7">
-                  〒610-0121 京都府城陽市寺田宮ノ谷
-                </span>
-              </div>
-
-              <div className="grid grid-cols-[90px_1fr] gap-6 border-b border-[#292722]/15 py-6">
-                <span className="text-sm text-[#766f63]">代表者</span>
-                <span className="text-sm leading-7">
-                  金井　勝
-                </span>
-              </div>
+            <div className="company-row">
+              <span>代表者</span>
+              <strong>金井　勝</strong>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-[#292722] text-[#f5f2eb]">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
-          <p className="text-xs tracking-[0.3em] text-[#b5aa98]">
+      <section id="contact" className="contact-section">
+        <div className="contact-inner">
+          <p className="eyebrow light" data-reveal>
             CONTACT
           </p>
 
-          <h2 className="mt-6 text-3xl font-light tracking-[0.12em]">
+          <h2 data-reveal>
             お問い合わせ
           </h2>
 
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-[#c7c0b4]">
+          <p className="contact-description" data-reveal>
             製品に関するお問い合わせや、
             <br />
-            鋳造についてのご相談など、お気軽にお問い合わせください。
+            鋳造についてのご相談など、
+            <br className="mobile-only" />
+            お気軽にお問い合わせください。
           </p>
 
           <a
             href="mailto:kanaikogei@gmail.com"
-            className="mt-10 inline-flex border border-[#f5f2eb]/50 px-10 py-4 text-sm tracking-[0.15em] hover:bg-[#f5f2eb] hover:text-[#292722]"
+            className="contact-button"
+            data-reveal
           >
-            メールでお問い合わせ
+            <span>メールでお問い合わせ</span>
+            <span>↗</span>
           </a>
 
-          <p className="mt-5 text-xs text-[#aaa398]">
+          <p className="contact-mail" data-reveal>
             kanaikogei@gmail.com
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1f1e1b] px-6 py-8 text-[#aaa398]">
-        <div className="mx-auto flex max-w-7xl justify-between text-xs tracking-wider">
-          <p>© 株式会社 金井工芸鋳造所</p>
-          <p>All Rights Reserved.</p>
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <div>
+            <p className="footer-company">株式会社 金井工芸鋳造所</p>
+            <p className="footer-en">KANAI KOGEI CHUZOSHO</p>
+          </div>
+
+          <p className="footer-copy">
+            © 株式会社 金井工芸鋳造所
+            <br />
+            All Rights Reserved.
+          </p>
         </div>
-      </footer> 
-    </main> 
+      </footer>
+    </main>
   );
 }
