@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 
 const works = [
   {
-    image: "/works/work01.jpg",
+    image: "/works/work01.jpg?v=2",
     number: "01",
-    title: "馬の銅像",
+    title: "鰐口",
     description:
-      "馬の姿胸から上をかたちにした銅像。全体像よりサイズダウンして細部まで丁寧に仕上げ、力強さと躍動感を表現しています。",
+      "神社や仏堂の正面軒下に吊り下げられ、参拝者が綱を振って打ち鳴らす仏具を鋳造で制作しました。",
     position: "center 20%",
+    fit: "contain",
   },
   {
     image: "/works/work02.jpg",
@@ -23,11 +24,11 @@ const works = [
       "鋳造の技術を活かし、完全オーダーの金具の制作事例です。",
   },
   {
-    image: "/works/work03.jpg",
+    image: "/works/work03.jpg?v=2",
     number: "03",
-    title: "伏見稲荷大社の眷属像",
+    title: "仏像",
     description:
-      "伏見稲荷大社の入り口に存在感を放つ眷属像。鋳造によって細かな造形を表現し、歴史ある空間にふさわしい姿に仕上げています。",
+      "仏像の造形を丁寧に鋳造した制作事例。穏やかな表情や細部の意匠を大切に仕上げています。",
   },
   {
     image: "/works/work04-new.jpg",
@@ -60,11 +61,11 @@ const works = [
       "龍をかたどった吐水口。細かな造形と鋳造ならではの質感を活かし、実用性と意匠性を兼ね備えています。",
   },
   {
-    image: "/works/work08.jpg",
+    image: "/works/work08.jpg?v=2",
     number: "08",
-    title: "仏像",
+    title: "伏見稲荷大社の眷属像",
     description:
-      "仏像の造形を丁寧に鋳造した制作事例。穏やかな表情や細部の意匠を大切に仕上げています。",
+      "伏見稲荷大社の入り口に存在感を放つ眷属像。鋳造によって細かな造形を表現し、歴史ある空間にふさわしい姿に仕上げています。",
   },
   {
     image: "/works/work09.jpg",
