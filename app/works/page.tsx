@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "施工事例 | 株式会社金井工芸鋳造所",
+  title: "手がけた鋳造品 | 株式会社金井工芸鋳造所",
   description:
-    "株式会社金井工芸鋳造所がこれまでに手がけた施工事例をご紹介します。仏具や美術工芸品など、鋳造によるものづくりをご覧いただけます。",
+    "株式会社金井工芸鋳造所がこれまでに手がけた鋳造品をご紹介します。仏具や美術工芸品など、鋳造によるものづくりをご覧いただけます。",
 };
 
 const works = [
@@ -18,7 +18,7 @@ const works = [
   {
     image: "/works/work02.jpg",
     number: "02",
-    title: "施工事例",
+    title: "手がけた鋳造品",
     description:
       "鋳造の技術を活かし、完全オーダーの金具の制作事例です。",
   },
@@ -40,7 +40,7 @@ const works = [
   {
     image: "/works/work05.jpg",
     number: "05",
-    title: "施工事例",
+    title: "手がけた鋳造品",
     description:
       "伝統的な鋳造技法を用い、素材の持つ風合いを活かして仕上げた制作事例です。",
   },
@@ -123,7 +123,7 @@ export default function WorksPage() {
             </p>
 
             <h1 className="mt-5 text-3xl font-light tracking-[0.12em] sm:text-4xl">
-              施工事例
+              手がけた鋳造品
             </h1>
 
             <div className="mt-8 h-px w-16 bg-[#8b7c62]" />
@@ -131,7 +131,7 @@ export default function WorksPage() {
             <p className="mt-8 max-w-2xl text-sm leading-8 tracking-wider text-[#625e56] sm:text-base">
               金井工芸鋳造所がこれまでに手がけてきた
               <br className="hidden sm:block" />
-              鋳造品、美術工芸品の施工事例をご紹介します。
+              鋳造品、美術工芸品の手がけた鋳造品をご紹介します。
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export default function WorksPage() {
                 <div className="group relative aspect-[3/4] overflow-hidden bg-[#e7e1d6]">
                   <img
                     src={work.image}
-                    alt={`金井工芸鋳造所 施工事例 ${work.number}`}
+                    alt={`金井工芸鋳造所 手がけた鋳造品 ${work.number}`}
                     className={`h-full w-full ${
                       work.fit === "contain" ? "object-contain" : "object-cover"
                     } transition duration-700 group-hover:scale-[1.03]`}

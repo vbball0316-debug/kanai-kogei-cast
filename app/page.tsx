@@ -172,7 +172,7 @@ export default function Home() {
             <a href="#about">私たちについて</a>
             <a href="#business">事業内容</a>
             <a href="#process">鋳造について</a>
-            <a href="/works">施工事例</a>
+            <a href="/works">手がけた鋳造品</a>
             <a href="#company">会社概要</a>
           </nav>
 
