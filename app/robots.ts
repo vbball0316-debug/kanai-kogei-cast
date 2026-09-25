@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://あなたの公開URL/sitemap.xml",
+    sitemap: "https://kanai-kogei-cast.vercel.app/sitemap.xml",
   };
 }

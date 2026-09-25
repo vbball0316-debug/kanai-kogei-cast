@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "株式会社 金井工芸鋳造所｜京都府で仏具・建築関連の鋳物・鋳造",
+  alternates: {
+    canonical: "https://kanai-kogei-cast.vercel.app/",
+  },
   icons: {
     icon: "/favicon.jpg",
   },
@@ -55,15 +58,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "株式会社 金井工芸鋳造所",
-              alternateName: "金井工芸鋳造所",
-              url: "https://kanai-kogei-cast.vercel.app/",
-            }),
-          }}
-       />
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "株式会社 金井工芸鋳造所",
+                alternateName: "金井工芸鋳造所",
+                url: "https://kanai-kogei-cast.vercel.app/",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "株式会社 金井工芸鋳造所",
+                alternateName: "金井工芸鋳造所",
+                url: "https://kanai-kogei-cast.vercel.app/",
+              },
+          ]),
+      }}
+  />
      </body>
     </html>
   );
