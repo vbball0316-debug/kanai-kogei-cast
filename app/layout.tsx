@@ -53,30 +53,31 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+  {children}
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                name: "株式会社 金井工芸鋳造所",
-                alternateName: "金井工芸鋳造所",
-                url: "https://kanai-kogei-cast.vercel.app/",
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: "株式会社 金井工芸鋳造所",
-                alternateName: "金井工芸鋳造所",
-                url: "https://kanai-kogei-cast.vercel.app/",
-              },
-          ]),
-      }}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            name: "株式会社 金井工芸鋳造所",
+            alternateName: "金井工芸鋳造所",
+            url: "https://kanai-kogei-cast.vercel.app/",
+          },
+          {
+            "@type": "Organization",
+            name: "株式会社 金井工芸鋳造所",
+            alternateName: "金井工芸鋳造所",
+            url: "https://kanai-kogei-cast.vercel.app/",
+          },
+        ],
+      }),
+    }}
   />
-     </body>
-    </html>
-  );
+</body>
+</html>
+);
 }
